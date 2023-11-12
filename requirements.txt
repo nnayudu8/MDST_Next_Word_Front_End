@@ -1,0 +1,6 @@
+streamlit
+numpy
+pickle
+tensorflow.keras.models
+tensorflow.keras.utils
+nltk.tokenize
