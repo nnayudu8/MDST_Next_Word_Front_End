@@ -1,8 +1,7 @@
 import streamlit as st
 import numpy as np
 import pickle
-from tensorflow.keras.models import load_model
-from tensorflow.keras.utils import pad_sequences
+import tensorflow as tf
 from nltk.tokenize import word_tokenize
 
 st.markdown("""
@@ -24,7 +23,7 @@ file.close()
 
 max_sequence_len = 123
 
-model = load_model('model.h5')
+model = tf.keras.models.load_model('model.h5')
 
 def predict_next_n_words(model, text, n, max_sequence_len, word_to_index, index_to_word):
     """
@@ -49,7 +48,7 @@ def predict_next_n_words(model, text, n, max_sequence_len, word_to_index, index_
         token_list = [word_to_index[word] for word in word_tokenize(text) if word in word_to_index]
 
         # Pad the token sequence
-        token_list = pad_sequences([token_list], maxlen=max_sequence_len-1, padding='pre')
+        token_list = tf.keras.utils.pad_sequences([token_list], maxlen=max_sequence_len-1, padding='pre')
 
         # Predict the token of the next word
         predicted_idx = np.argmax(model.predict(token_list), axis=-1)

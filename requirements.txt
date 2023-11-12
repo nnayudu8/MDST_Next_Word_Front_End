@@ -1,6 +1,5 @@
 streamlit
 numpy
 scikit-learn
-tensorflow.keras.models
-tensorflow.keras.utils
+tensorflow
 nltk.tokenize
