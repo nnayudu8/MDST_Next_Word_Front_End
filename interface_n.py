@@ -4,6 +4,8 @@ import pickle
 import tensorflow as tf
 import nltk
 
+nltk.download('punkt')
+
 st.markdown("""
 <style>
 	[data-testid="stHeader"] {
