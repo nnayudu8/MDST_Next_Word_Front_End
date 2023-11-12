@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pickle
 import tensorflow as tf
-from nltk.tokenize import word_tokenize
+import nltk
 
 st.markdown("""
 <style>
@@ -45,7 +45,7 @@ def predict_next_n_words(model, text, n, max_sequence_len, word_to_index, index_
 
     for _ in range(n):
         # Tokenize the input string
-        token_list = [word_to_index[word] for word in word_tokenize(text) if word in word_to_index]
+        token_list = [word_to_index[word] for word in nltk.tokenize.word_tokenize(text) if word in word_to_index]
 
         # Pad the token sequence
         token_list = tf.keras.utils.pad_sequences([token_list], maxlen=max_sequence_len-1, padding='pre')
