@@ -70,11 +70,14 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
     "Natural Language Processing model that predicts the next 'n' words, specified by the user, given a user input."
+    st.divider()
     st.markdown(
-        "<h3>Michigan Data Science Team<sup style='font-size:.8em;'>©</sup></h3>",
+        "<h3>Designed by Michigan Data Science Team in Fall 2023</h3>",
         unsafe_allow_html=True,
     )
-    "All Rights Reserved"
+    one, two = st.columns(2)
+    with one: 
+        st.image("MDST_logo.jpg", width= 200)
 
 st.title("➱ Next Word Predictor") 
 st.divider()
